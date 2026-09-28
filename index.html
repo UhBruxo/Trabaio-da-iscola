@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mãos De Fada - Artesanato Moda e Magia </title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Petit+Formal+Script&family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap');
+:root{
+    --curtain: #b57edc;
+    --curtain-dark: #6C3483;
+    --gold: #475E30;
+    --gold-light: #EF8494;
+    --ivory: #F6EFE4;
+    --blush: #EF8494;
+    --stage-black: #1C1210;
+    --ink: #2A1B1E;
+}
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:#EF8494;
+    color:#000000;
+    font-family:'Petit Formal Script', cursive;
+    font-weight:300;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--gold-light); color:#000000;}
+
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+
+  .eyebrow{
+    font-family:'Petit Formal Script', cursive;
+    letter-spacing:.32em;
+    text-transform:uppercase;
+    font-size:.68rem;
+    color:#000000;
+    font-weight:500;
+  }
+
+  h1,h2,h3{font-family:'Petit Formal Script', cursive; font-weight:600; color:#000000;}
+
+  /* ---------- top ribbon ---------- */
+  .ribbon{
+    background:var(#475E30);
+    color:#000000;
+    text-align:center;
+    font-size:.72rem;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    padding:9px 0;
+  }
+
+  /* ---------- header ---------- */
+  header{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:22px 6%;
+    background:var(--ivory);
+    border-bottom:1px solid rgba(71,94,48,.12);
+    position:sticky; top:0; z-index:50;
+  }
+  .logo{
+    font-family:'Great Vibes', cursive;
+    font-size:2rem;
+    letter-spacing:.06em;
+    color:#C9A24B;
+  }
+  .logo em{color:#C9A24B; font-style:normal;}
+  nav{display:flex; gap:34px; font-size:.82rem; letter-spacing:.06em;}
+  nav a{position:relative; padding-bottom:4px; color:#000000;}
+  nav a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:width .35s ease;}
+  nav a:hover::after{width:100%;}
+  .header-icons{display:flex; gap:20px; font-size:1rem; color:#000000;}
+
+  /* ---------- HERO : curtain reveal ---------- */
+  .hero{
+    position:relative;
+    height:92vh;
+    min-height:560px;
+    display:flex; align-items:center; justify-content:center;
+    background:radial-gradient(ellipse at center, #000000 0%, #000000 78%);
+    overflow:hidden;
+  }
+  .spotlight{
+    position:absolute; top:-20%; left:50%; transform:translateX(-50%);
+    width:900px; height:900px;
+    background:radial-gradient(circle, rgba(228,205,143,.16) 0%, rgba(228,205,143,0) 60%);
+    pointer-events:none;
+  }
+  .curtain-half{
+    position:absolute; top:0; bottom:0; width:52%;
+    background:
+      repeating-linear-gradient(90deg, rgba(0,0,0,.18) 0 14px, rgba(0,0,0,0) 14px 34px),
+      linear-gradient(180deg, #D2B4DE 0%, var(--curtain) 45%, var(--curtain-dark) 100%);
+    box-shadow: 0 0 90px rgba(0,0,0,.55) inset;
+    z-index:5;
+    transition: transform 1.8s cubic-bezier(.77,0,.18,1);
+  }
+  
+  .curtain-left{left:-2%; border-radius:0 0 60% 6% / 0 0 22% 6%;}
+  .curtain-right{right:-2%; border-radius:0 0 6% 60% / 0 0 6% 22%;}
+  .curtain-left.open{transform:translateX(-92%) skewY(-1deg);}
+  .curtain-right.open{transform:translateX(92%) skewY(1deg);}
+  .curtain-tassel{
+    position:absolute; bottom:0; width:100%; height:46px;
+    background:repeating-linear-gradient(90deg, var(--gold) 0 3px, transparent 3px 16px);
+    opacity:.75;
+  }
+
+  .hero-content{
+    position:relative; z-index:2;
+    text-align:center; color:#000000;
+    max-width:640px; padding:0 24px;
+    opacity:0; transform:translateY(18px);
+    animation: riseIn 1.2s ease forwards 1.4s;
+  }
+  .hero-bg-img{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    width:60%;
+    height:auto;
+    object-fit:cover;
+    z-index:1;
+  }
+    
+    @keyframes riseIn{to{opacity:1; transform:translateY(0);}}
+    .hero-content .eyebrow{color:#000000;}
+  .hero-content h1{
+    font-size:clamp(2.4rem, 5.2vw, 4.1rem);
+    line-height:1.05;
+    margin:16px 0 20px;
+    font-style:italic;
+    color:#000000;
+  }
+  .hero-content p{
+    font-family:'Petit Formal Script', cursive; font-size:1.2rem; font-weight:400;
+    color:#000000; line-height:1.6; margin-bottom:30px;
+  }
+  .btn-gold{
+    display:inline-block;
+    background:linear-gradient(180deg, var(--gold-light), var(--gold));
+    color:#000000;
+    padding:15px 40px;
+    font-size:.82rem; letter-spacing:.16em; text-transform:uppercase;
+    border-radius:2px;
+    box-shadow:0 8px 24px rgba(71,94,48,.35);
+    transition:transform .3s ease, box-shadow .3s ease;
+    margin-top:780px;
+  }
+  .btn-gold:hover{transform:translateY(-2px); box-shadow:0 12px 30px rgba(71,94,48,.5);}
+
+  /* ---------- section shell ---------- */
+  section{padding:100px 6%;}
+  .section-head{text-align:center; max-width:640px; margin:0 auto 56px;}
+  .section-head h2{font-size:clamp(1.9rem,3.4vw,2.6rem); font-style:italic; margin-top:12px;}
+  .section-head p{font-family:'Petit Formal Script',cursive; font-size:1.15rem; color:#000000; margin-top:14px;}
+
+  /* ---------- PRODUCT ---------- */
+  .product{
+    display:grid; grid-template-columns:1.1fr .9fr; gap:70px;
+    padding:90px 6%; align-items:flex-start;
+  }
+  .gallery{position:sticky; top:100px;}
+  .gallery-main{
+    position:relative; border-radius:4px; overflow:hidden;
+    background:linear-gradient(160deg, #EFE2C8, var(--ivory));
+    border:1px solid rgba(71,94,48,.14);
+    aspect-ratio:4/5;
+    display:flex; align-items:center; justify-content:center;
+  }
+  
+  .gallery-main .stage-icon{
+    width:56%; opacity:.9;
+  }
+  .gallery-thumbs{display:flex; gap:12px; margin-top:16px;}
+  .gallery-thumbs div{
+    flex:1; aspect-ratio:1; border-radius:3px;
+    background:linear-gradient(160deg,#EFE2C8,#E4D2B0);
+    border:1px solid rgba(71,94,48,.14);
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.3rem; color:#000000;
+    cursor:pointer; transition:border-color .25s;
+  }
+  .gallery-thumbs div:hover{border-color:var(--gold);}
+
+  .buy-panel .eyebrow{margin-bottom:10px;}
+  .buy-panel h1{font-size:clamp(1.9rem,3vw,2.5rem); font-style:italic; line-height:1.15;}
+  .stars{color:#000000; letter-spacing:2px; margin:14px 0 6px; font-size:.95rem;}
+  .stars span{color:#000000; font-family:'Petit Formal Script',cursive; font-size:.78rem; letter-spacing:.03em; margin-left:6px;}
+
+  .price-row{display:flex; align-items:baseline; gap:14px; margin:22px 0 6px;}
+  .price-now{font-family:'Petit Formal Script',cursive; font-size:1.9rem; color:#000000;}
+  .price-old{font-family:'Petit Formal Script',cursive; font-size:1.2rem; color:#000000; text-decoration:line-through;}
+  .price-tag{
+    font-size:.68rem; letter-spacing:.14em; text-transform:uppercase;
+    background:#EF8494; color:#000000;
+    padding:4px 10px; border-radius:2px;
+  }
+  .installment{font-family:'Petit Formal Script',cursive; font-size:1.02rem; color:#000000; margin-bottom:30px;}
+
+  .option-block{margin-bottom:26px;}
+  .option-label{font-size:.75rem; letter-spacing:.14em; text-transform:uppercase; color:#000000; margin-bottom:12px; display:block; font-weight:500;}
+  .option-choices{display:flex; gap:12px; flex-wrap:wrap;}
+  .option-choices label{
+    border:1px solid rgba(71,94,48,.3); border-radius:2px;
+    padding:12px 18px; font-size:.85rem; cursor:pointer;
+    transition:all .25s ease; position:relative;
+    color:#000000;
+    background:#F6EFE4;
+  }
+  .option-choices input{position:absolute; opacity:0;}
+
+  /* Caixinha quando está SELECIONADA */
+  .option-choices label:has(input:checked){
+    border: 2px solid #475E30 !important; /* Borda verde bem destacada */
+    background: #ffffff !important;
+    box-shadow: 0 0 8px rgba(71, 94, 48, 0.4) !important;
+  }
+
+  /* Texto quando está SELECIONADO (sublinhado e em negrito) */
+  .option-choices label:has(input:checked) span{
+    text-decoration: underline !important;
+    text-underline-offset: 4px;
+    font-weight: 600;
+    color: #475E30 !important;
+  }
+
+
+  .qty-buy{display:flex; gap:14px; margin-top:34px;}
+  .qty-box{
+    display:flex; align-items:center; border:1px solid rgba(71,94,48,.3); border-radius:2px;
+  }
+  .qty-box button{background:none; border:none; width:38px; height:52px; font-size:1.1rem; cursor:pointer; color:#000000;}
+  .qty-box span{width:36px; text-align:center; font-size:.95rem; color:#000000;}
+  .add-cart{
+    flex:1;
+    background:#475E30; color:#000000;
+    border:none; border-radius:2px;
+    letter-spacing:.14em; text-transform:uppercase; font-size:.82rem;
+    cursor:pointer; transition:background .3s ease;
+  }
+  .add-cart:hover{background:#EF8494;}
+
+  .trust-row{
+    display:flex; gap:24px; margin-top:36px; padding-top:28px;
+    border-top:1px solid rgba(71,94,48,.14);
+    font-size:.74rem; color:#000000; flex-wrap:wrap;
+  }
+  .trust-row div{display:flex; align-items:center; gap:8px;}
+
+  .desc-block{margin-top:44px; font-family:'Petit Formal Script', cursive; font-size:1.15rem; line-height:1.75; color:#000000;}
+  .desc-block .note{font-family:'Petit Formal Script', cursive; font-size:.72rem; letter-spacing:.05em; color:#000000; margin-top:14px;}
+
+  /* ---------- design story ---------- */
+  .design-story{
+    background:#475E30;
+    color:#000000;
+    display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:60px;
+  }
+  .design-story .eyebrow{color:#000000;}
+  .design-story h2{color:#000000; font-style:italic; margin:14px 0 20px;}
+  .design-story p{font-family:'Petit Formal Script', cursive; font-size:1.15rem; line-height:1.75; color:#000000;}
+  .story-visual{
+    aspect-ratio:1/1; border:1px solid var(--gold);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    position:relative;
+  }
+  .story-visual::before{
+    content:'';
+    position:absolute; inset:22px;
+    border:1px dashed rgba(239,132,148,.5);
+    border-radius:50%;
+  }
+  .story-visual span{font-family:'Petit Formal Script', cursive; font-style:italic; font-size:1.4rem; text-align:center; padding:0 20px; color:#000000;}
+
+  /* ---------- more from collection ---------- */
+  .collection-grid{
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:28px;
+  }
+  .collection-card{
+    background:#fff; border:1px solid rgba(71,94,48,.12); border-radius:3px; overflow:hidden;
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .collection-card:hover{transform:translateY(-6px); box-shadow:0 20px 40px rgba(71,94,48,.14);}
+  .collection-thumb{
+    aspect-ratio:1; background:#EF8494;
+    display:flex; align-items:center; justify-content:center; font-size:2rem; color:#000000;
+  }
+  .collection-info{padding:18px 18px 22px;}
+  .collection-info h3{font-size:1.02rem; font-style:italic; margin-bottom:8px; color:#000000;}
+  
+  .collection-price{font-size:.86rem; color:#000000; margin-bottom:12px;}
+  .collection-btn{
+    display:block; text-align:center; padding:10px; border:1px solid #475E30;
+    font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; border-radius:2px;
+    transition:all .25s ease; color:#000000;
+  }
+  .collection-btn:hover{background:#475E30; color:#000000;}
+
+  /* ---------- reviews ---------- */
+  .reviews{background:#FBF7EE;}
+  .review-summary{
+    display:flex; align-items:center; gap:26px; justify-content:center; margin-bottom:50px; flex-wrap:wrap;
+  }
+  .review-score{font-family:'Petit Formal Script'; font-size:3rem; color:#000000;}
+  .review-summary .stars{margin:0;}
+  .review-cards{display:grid; grid-template-columns:repeat(2,1fr); gap:26px; max-width:900px; margin:0 auto;}
+  .review-card{
+    background:#fff; border:1px solid rgba(71,94,48,.1); border-radius:3px; padding:28px;
+  }
+  .review-card .stars{margin-bottom:12px;}
+  .review-card p{font-family:'Petit Formal Script'; font-size:1.08rem; line-height:1.6; color:#000000; margin-bottom:16px;}
+  .review-meta{display:flex; justify-content:space-between; font-size:.75rem; color:#000000; letter-spacing:.03em;}
+
+  /* ---------- loyalty banner ---------- */
+  .loyalty{
+    background:linear-gradient(120deg, #EF8494 0%, #475E30 100%);
+    color:#000000; text-align:center; padding:70px 6%;
+  }
+  .loyalty h2{color:#000000; font-style:italic;}
+  .loyalty p{font-family:'Petit Formal Script'; font-size:1.2rem; margin:16px 0 28px; color:#000000;}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--stage-black); color:#EF8494; padding:70px 6% 30px;}
+  .footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; margin-bottom:50px;}
+  .footer-grid h4{color:#EF8494; font-family:'Petit Formal Script'; font-size:.76rem; letter-spacing:.14em; text-transform:uppercase; margin-bottom:18px;}
+  .footer-grid p, .footer-grid a{display:block; font-size:.86rem; line-height:2.1; color:#EF8494;}
+  .footer-grid a:hover{color:#EF8494;}
+  .footer-logo{font-family:'Petit Formal Script'; font-style:italic; font-size:1.3rem; color:#EF8494; margin-bottom:14px;}
+  .footer-bottom{ border-top:1px solid rgba(247, 120, 139, 0.925); padding-top:24px;
+    display:flex; justify-content:space-between; font-size:.74rem; flex-wrap:wrap; gap:10px; color:#EF8494;
+  }
+
+  @media(max-width:920px){
+    nav{display:none;}
+    .product{grid-template-columns:1fr; gap:40px;}
+    .gallery{position:static;}
+    .design-story{grid-template-columns:1fr;}
+    .collection-grid{grid-template-columns:repeat(2,1fr);}
+    .review-cards{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="ribbon">Frete grátis acima de $120 · Programa de Fidelidade: ganhe 100 pontos hoje</div>
+
+<header>
+  <div class="logo">Mãos D<em>e Fada</em></div>
+  <nav>
+    <a href="#produto">Coffret</a>
+    <a href="#historia">Nossa História</a>
+    <a href="#colecao">Coleção</a>
+    <a href="#avaliacoes">Avaliações</a>
+  </nav>
+  <div class="header-icons">
+    <span>&#9825;</span>
+    <span>&#128100;</span>
+    <span>&#128722;</span>
+  </div>
+</header>
+
+<section class="hero" id="hero">
+  <img class="hero-bg-img" src="https://i.pinimg.com/736x/83/14/8b/83148bdc28a3b25d3d9c601c0f2a6318.jpg" alt="Mãos de Fada">
+  <div class="spotlight"></div>
+  <div class="curtain-half curtain-left" id="curtainLeft"><div class="curtain-tassel"></div></div>
+  <div class="curtain-half curtain-right" id="curtainRight"><div class="curtain-tassel"></div></div>
+  <div class="hero-content">
+    <a href="#produto" class="btn-gold">Ver Produtos</a>
+  </div>
+</section>
+
+<section class="product" id="produto">
+  <div class="gallery">
+    <div class="gallery-main">
+      <img src="calça e short.jpeg">
+        <rect x="20" y="140" width="160" height="10" fill="#475E30" opacity="0.6"/>
+        <path d="M40 140 L40 60 Q40 30 100 30 Q160 30 160 60 L160 140" stroke="#475E30" stroke-width="4" fill="#F6EFE4"/>
+        <circle cx="100" cy="85" r="26" fill="#EF8494" opacity="0.8"/>
+        <path d="M75 95 Q100 120 125 95" stroke="#475E30" stroke-width="3" fill="none"/>
+      </svg>
+    </div>
+    
+    <div class="gallery-thumbs">
+    </div>
+  </div>
+
+  <div class="buy-panel">
+    <span class="eyebrow">Coffret Completo</span>
+    <h1>calça baggy e shorts - cybertribal</h1>
+    <div class="stars">★★★★★ <span>5.00 de 5 · 2 avaliações</span></div>
+
+    <div class="price-row">
+      <span class="price-now">$119.99</span>
+      <span class="price-old">$180.00</span>
+      <span class="price-tag">Promoção</span>
+    </div>
+    <p class="installment">4 parcelas sem juros, ou a partir de $34,41/mês</p>
+
+    <div class="option-block">
+      <span class="option-label">Versão</span>
+      <div class="option-choices">
+        <label><input type="radio" name="opt" checked><span>Short Cybertribal </span></label>
+        <label><input type="radio" name="opt"><span>calça cybertribal </span></label>
+      </div>
+    </div>
+
+    <div class="qty-buy">
+      <div class="qty-box">
+        <button aria-label="Diminuir quantidade">−</button>
+        <span>1</span>
+        <button aria-label="Aumentar quantidade">+</button>
+      </div>
+      <button class="add-cart">Adicionar à Sacola</button>
+    </div>
+
+    <div class="trust-row">
+      <div>&#9989; Testado contra formaldeído</div>
+      <div>&#128230; Envio rastreado</div>
+      <div>&#8635; Trocas em 30 dias</div>
+    </div>
+
+    <div class="desc-block">
+      <p>Abra as portas e as cortinas se levantam — o momento em que você entra em cena, luminosa e ousada.</p>
+      <p>Um mundo de imaginação, onde você brilha sem pedir desculpas.</p>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="colecao">
+  <div class="section-head">
+    <span class="eyebrow">Mais da Coleção</span>
+    <h2>Amor e gatos</h2>
+    <p>Complete-se com as demais peças da coleção.</p>
+  </div>
+  
+  
+  
+
+  <div class="collection-grid">
+    <div class="collection-card">
+      <div class="collection-thumb"> <img src="Porta joias.jpeg"> </div>
+      <div class="collection-info">
+        <h3>Porta joias</h3>
+        <div class="swatches"><div style="background:#5C1A2B"></div><div style="background:#C9A24B"></div><div style="background:#E8B4BC"></div></div>
+        <p class="collection-price">R$25.00</p>
+        <div class="qty-buy">
+      <div class="qty-box">
+        <button aria-label="Diminuir quantidade">−</button>
+        <span>1</span>
+        <button aria-label="Aumentar quantidade">+</button>
+      </div>
+      <button class="add-cart">Adicionar à Sacola</button>
+    </div>
+      </div>
+    </div>
+    
+    
+    <div class="collection-card">
+      <div class="collection-thumb"> <img src="Porta óculos (gato).jpeg"> </div>
+      <div class="collection-info">
+        <h3>Porta óculos (gato)</h3>
+        <div class="swatches"><div style="background:#E8B4BC"></div><div style="background:#C9A24B"></div><div style="background:#F6EFE4"></div></div>
+        <p class="collection-price">R$35.00</p>
+        <div class="qty-buy">
+      <div class="qty-box">
+        <button aria-label="Diminuir quantidade">−</button>
+        <span>1</span>
+        <button aria-label="Aumentar quantidade">+</button>
+      </div>
+      <button class="add-cart">Adicionar à Sacola</button>
+    </div>
+      </div>
+    </div>
+    
+    <div class="collection-card">
+      <div class="collection-thumb"> <img src="godê de morango.jpeg"> </div>
+      <div class="collection-info">
+        <h3>Godê de morango</h3>
+        <div class="swatches"><div style="background:#E8B4BC"></div><div style="background:#D98CA0"></div><div style="background:#C9A24B"></div></div>
+        <p class="collection-price">R$26.00</p>
+        <div class="qty-buy">
+      <div class="qty-box">
+        <button aria-label="Diminuir quantidade">−</button>
+        <span>1</span>
+        <button aria-label="Aumentar quantidade">+</button>
+      </div>
+      <button class="add-cart">Adicionar à Sacola</button>
+    </div>
+      </div>
+    
+    </div>
+    <div class="collection-card">
+      <div class="collection-thumb"><img src="Chaveiro de Coração.jpeg"> </div>
+      <div class="collection-info">
+        <h3>Chaveiro de Coração</h3>
+        <div class="swatches"><div style="background:#5C1A2B"></div><div style="background:#D98CA0"></div><div style="background:#C9A24B"></div></div>
+        <p class="collection-price">R$10.00</p>
+        <div class="qty-buy">
+      <div class="qty-box">
+        <button aria-label="Diminuir quantidade">−</button>
+        <span>1</span>
+        <button aria-label="Aumentar quantidade">+</button>
+      </div>
+      <button class="add-cart">Adicionar à Sacola</button>
+    </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="reviews" id="avaliacoes">
+  <div class="section-head">
+    <span class="eyebrow">Histórias Reais</span>
+    <h2>O Que Dizem Sobre o Coffret</h2>
+  </div>
+  <div class="review-summary">
+    <div class="review-score">5.00</div>
+    <div>
+      <div class="stars">★★★★★</div>
+      <div style="font-size:.78rem; color:#000000;">Baseado em 2 avaliações</div>
+    </div>
+  </div>
+  <div class="review-cards">
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>O conjunto é incrível e tudo dentro dele é tão bonito, finalmente consigo fazer minha maquiagem com capricho.</p>
+      <div class="review-meta"><span>Marta L. — ES</span><span>09/08/26</span></div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>Toda a coleção é simplesmente mágica — as paletas são lindas, os batons têm um acabamento encantador.</p>
+      <div class="review-meta"><span>Kamila — PL</span><span>22/06/26</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="loyalty">
+  <span class="eyebrow" style="color:#000000">Programa de Fidelidade</span>
+  <h2>Entre no elenco e seja recompensada a cada compra</h2>
+  <p>Junte-se ao nosso Programa de Fidelidade e ganhe pontos que viram descontos no próximo ato.</p>
+  <a href="#" class="btn-gold">Ganhar 100 Pontos Agora</a>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h4>Sobre</h4>
+      <a href="#">Nossa Marca</a>
+      <a href="#">Coleções</a>
+      <a href="#">Blog</a>
+    </div>
+    <div>
+      <h4>Atendimento</h4>
+      <a href="#">Política de Reembolso</a>
+      <a href="#">Política de Privacidade</a>
+      <a href="#">Termos de Serviço</a>
+      <a href="#">Política de Envio</a>
+    </div>
+    <div>
+      <h4>Siga-nos</h4>
+      <a href="https://www.instagram.com/maos.defadastore?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw=="target="_blank">Instagram</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    
+    <span>Formas de pagamento aceitas: Pix, Débito, Crédito, Boleto e o cuzinho </span>
+  </div>
+</footer>
+
+<script>
+  // curtain reveal on load
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('curtainLeft').classList.add('open');
+      document.getElementById('curtainRight').classList.add('open');
+    }, 500);
+  });
+
+  // quantity stepper
+  const qtyBox = document.querySelector('.qty-box');
+  const qtySpan = qtyBox.querySelector('span');
+  const [minus, plus] = qtyBox.querySelectorAll('button');
+  let qty = 1;
+  minus.addEventListener('click', () => { qty = Math.max(1, qty - 1); qtySpan.textContent = qty; });
+  plus.addEventListener('click', () => { qty += 1; qtySpan.textContent = qty; });
+</script>
+
+</body>
+</html>
